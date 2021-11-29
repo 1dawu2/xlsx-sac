@@ -1,0 +1,57 @@
+{
+    "id": "com.tf.sac",
+    "version": "0.0.1",
+    "name": "Tensorflow",
+    "description": "Tensorflow Timeseries Forecast",
+    "newInstancePrefix": "Tensorflow",
+    "icon": "https://1dawu2.github.io/tf-sac/icon.png",
+    "vendor": "IFM",
+    "eula": "",
+    "license": "",
+    "imports": [ "input-controls" ],
+    "webcomponents": [
+      {
+        "kind": "main",
+        "tag": "com-tf-sac",
+        "url": "https://1dawu2.github.io/tf-sac/grid.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+      }
+    ],
+    "properties": {
+      "metadata": {
+        "type": "string",
+        "description": "For internal use",
+        "default": ""
+      },
+      "password": {
+        "type": "string",
+        "description": "password",
+        "default": ""
+      }
+    },
+    "methods": {
+      "getPassword": {
+        "returnType": "string",
+        "description": "Get password",
+        "parameters": [],
+        "body": "return this.password;"
+      },
+      "setPassword": {
+        "description": "Set password",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "description": "The new password"
+          }
+        ],
+        "body": "this.password = value;"
+      }
+    },
+    "events": {
+        "onStart": {
+        "description": "onStart events trigger"
+      }
+    }
+  }
