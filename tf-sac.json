@@ -31,6 +31,16 @@
       }
     },
     "methods": {
+      "render": {
+        "description": "Render",
+        "parameters": [
+            {
+                "name": "resultSet",
+                "type": "any",
+                "description": "The json"
+            }
+        ]
+    },
       "getPassword": {
         "returnType": "string",
         "description": "Get password",
