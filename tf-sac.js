@@ -87,7 +87,7 @@
 
             })
             
-            _jsonData = tmpData
+            _jsonDat.push(tmpData)
 
         }
 
