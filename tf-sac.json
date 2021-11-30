@@ -31,7 +31,7 @@
       }
     },
     "methods": {
-      "render": {
+      "renderData": {
         "description": "Render",
         "parameters": [
             {
