@@ -88,6 +88,7 @@
             })
 
             console.log('tmpdata: ' + tmpData);
+            console.log('resultset: ' + resultSet);
             
             _jsonData = tmpData
 
