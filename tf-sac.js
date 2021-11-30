@@ -66,7 +66,6 @@
             const dataSet = []
             
             var tmpData = {}
-            console.log(resultSet)
             resultSet.forEach(dp => {
                 const { rawValue, description } = dp[MEASURE_DIMENSION]
                 const date = dp.Date.description
@@ -86,13 +85,9 @@
                     values.push(rawValue);
                 }
 
-            })
+            })            
+            _jsonData = dataSet
 
-            console.log(tmpData)
-            
-            
-            _jsonData = tmpData
-            console.log(_jsonData)
 
         }
 
