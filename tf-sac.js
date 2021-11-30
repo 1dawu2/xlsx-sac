@@ -2,6 +2,7 @@
     let _shadowRoot;
     let _id;
     let _password;
+    let _jsonData;
 
     let tmpl = document.createElement("template");
     tmpl.innerHTML = `
@@ -46,9 +47,11 @@
 
             _shadowRoot.querySelector("#oView").id = _id + "_oView";
 
+            _jsonData = {};
+
+
             this._export_settings = {};
-            this._export_settings.password = "";
-            this._jsonData = {};
+            this._export_settings.password = "";            
 
             this.addEventListener("click", event => {
                 console.log('click');
@@ -61,7 +64,7 @@
             const dates = []
             const values = []
             const dataSet = []
-            console.log(resultSet);
+            
             var tmpData = {}
             resultSet.forEach(dp => {
                 const { rawValue, description } = dp[MEASURE_DIMENSION]
@@ -83,7 +86,6 @@
                 }
 
             })
-
             this._jsonData = tmpData
 
         }
@@ -237,12 +239,8 @@
 
                 return Controller.extend("myView.Template", {
                     onInit: function () {
-                        alert("onInit function called");
-                        console.log(this._jsonData);
-
                     },
                     onAfterRendering: function () {
-                        alert("onAfterRendering function called");
                     },
                     onButtonPress: function (oEvent) {
                         _password = oView.byId("passwordInput").getValue();
@@ -257,7 +255,7 @@
                                 settings: this.settings
                             }
                         }));
-                        console.log(this._jsonData);
+                        console.log(_jsonData);
                     }
                 });
             });
@@ -265,7 +263,7 @@
             //### THE APP: place the XMLView somewhere into DOM ###
             var oView = sap.ui.xmlview({
                 viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
-            });
+            });            
             oView.placeAt(content);
 
 
