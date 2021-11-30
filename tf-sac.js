@@ -86,8 +86,10 @@
                 }
 
             })
+
+            console.log('tmpdata: ' + tmpData);
             
-            _jsonData.push(tmpData)
+            _jsonData = tmpData
 
         }
 
