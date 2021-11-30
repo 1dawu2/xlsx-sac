@@ -26,7 +26,9 @@
 							placeholder="Enter password ..." liveChange="onButtonPress"/>
 					</l:content>
 				</l:VerticalLayout>
+                
 			</mvc:View>
+
         </script>        
     `;
 
@@ -46,10 +48,44 @@
 
             this._export_settings = {};
             this._export_settings.password = "";
+            this._jsonData = {};
 
             this.addEventListener("click", event => {
                 console.log('click');
             });
+        }
+
+        async renderData(resultSet) {
+
+            const MEASURE_DIMENSION = 'Account'
+            const dates = []
+            const values = []
+            const dataSet = []
+            console.log(resultSet);
+            var tmpData = {}
+            resultSet.forEach(dp => {
+                const { rawValue, description } = dp[MEASURE_DIMENSION]
+                const date = dp.Date.description
+
+                tmpData = {
+                    "dates": date,
+                    "measure": rawValue
+                }
+
+                dataSet.push(tmpData);
+
+                if (dates.indexOf(date) === -1) {
+                    dates.push(date);
+
+                }
+                if (description === 'Volume') {
+                    values.push(rawValue);
+                }
+
+            })
+            
+            this._jsonData = tmpData
+
         }
 
         connectedCallback() {
@@ -200,6 +236,7 @@
                 "use strict";
 
                 return Controller.extend("myView.Template", {
+                    
                     onButtonPress: function(oEvent) {
                         _password = oView.byId("passwordInput").getValue();
                         that._firePropertiesChanged();
@@ -213,7 +250,10 @@
                                 settings: this.settings
                             }
                         }));
-                    } 
+                    },
+                    onInit: function() {
+                        console.log(this._jsonData);
+                    }
                 });
             });
 
