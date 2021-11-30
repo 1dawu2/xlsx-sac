@@ -257,6 +257,7 @@
                                 settings: this.settings
                             }
                         }));
+                        console.log(this._jsonData);
                     }
                 });
             });
