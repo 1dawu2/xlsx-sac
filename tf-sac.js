@@ -86,7 +86,8 @@
                 }
 
             })
-            this._jsonData = tmpData
+            
+            _jsonData = tmpData
 
         }
 
