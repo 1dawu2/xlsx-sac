@@ -1,4 +1,4 @@
-(function() {
+(function () {
     let _shadowRoot;
     let _id;
     let _password;
@@ -83,7 +83,7 @@
                 }
 
             })
-            
+
             this._jsonData = tmpData
 
         }
@@ -162,11 +162,11 @@
                         }
                     }
                 }
-            } catch (e) {}
+            } catch (e) { }
         }
 
         disconnectedCallback() {
-            if (this._subscription) { 
+            if (this._subscription) {
                 this._subscription();
                 this._subscription = null;
             }
@@ -220,24 +220,31 @@
     // UTILS
     function loadthis(that) {
         var that_ = that;
-      
+
         let content = document.createElement('div');
         content.slot = "content";
         that_.appendChild(content);
 
-        sap.ui.getCore().attachInit(function() {
+        sap.ui.getCore().attachInit(function () {
             "use strict";
 
             //### Controller ###
             sap.ui.define([
                 "jquery.sap.global",
                 "sap/ui/core/mvc/Controller"
-            ], function(jQuery, Controller) {
+            ], function (jQuery, Controller) {
                 "use strict";
 
                 return Controller.extend("myView.Template", {
-                    
-                    onButtonPress: function(oEvent) {
+                    onInit: function () {
+                        alert("onInit function called");
+                        console.log(this._jsonData);
+
+                    },
+                    onAfterRendering: function () {
+                        alert("onAfterRendering function called");
+                    },
+                    onButtonPress: function (oEvent) {
                         _password = oView.byId("passwordInput").getValue();
                         that._firePropertiesChanged();
                         console.log(_password);
@@ -250,15 +257,12 @@
                                 settings: this.settings
                             }
                         }));
-                    },
-                    onInit: function() {
-                        console.log(this._jsonData);
                     }
                 });
             });
 
             //### THE APP: place the XMLView somewhere into DOM ###
-            var oView  = sap.ui.xmlview({
+            var oView = sap.ui.xmlview({
                 viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
             });
             oView.placeAt(content);
@@ -276,5 +280,5 @@
                 v = c === "x" ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
-    }  
+    }
 })();
