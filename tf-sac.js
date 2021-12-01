@@ -13,11 +13,16 @@
         </div>
         <script id="oView" name="oView" type="sapui5/xmlview">
             <mvc:View
-			    controllerName="myView.Template"
-				xmlns:l="sap.ui.layout"
+            controllerName="myView.Template"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                xmlns:mvc="sap.ui.core.mvc"
+                displayBlock="true"
+                xmlns="sap.m"
                 xmlns:viz="sap.viz.ui5.controls"
-				xmlns:mvc="sap.ui.core.mvc"
-				xmlns="sap.m">
+                xmlns:layout="sap.ui.layout"
+                xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+                xmlns:viz.data="sap.viz.ui5.data"
+            >
 				<l:VerticalLayout
 					class="sapUiContentPadding"
 					width="100%">
