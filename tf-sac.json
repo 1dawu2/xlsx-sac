@@ -16,7 +16,14 @@
         "url": "https://1dawu2.github.io/tf-sac/tf-sac.js",
         "integrity": "",
         "ignoreIntegrity": true
-      }
+      },
+      {
+        "kind": "builder",
+        "tag": "com-tf-sac-aps",
+        "url": "https://1dawu2.github.io/tf-sac/tf-sac-aps.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+    }      
     ],
     "properties": {
       "metadata": {
@@ -28,6 +35,16 @@
         "type": "string",
         "description": "password",
         "default": ""
+      },
+      "dimensions": {
+        "type": "string",
+        "description": "Dimensions",
+        "default": ""
+      },
+      "measure": {
+        "type": "string",
+        "description": "Measure",
+        "default": ""        
       }
     },
     "methods": {
@@ -41,6 +58,23 @@
             }
         ]
     },
+    "getDimensions": {
+      "returnType": "string",
+      "description": "Get dimensios",
+      "parameters": [],
+      "body": "return this.dimensions;"
+    },
+    "setDimensions": {
+      "description": "Set dimensions",
+      "parameters": [
+        {
+          "name": "dimension",
+          "type": "string",
+          "description": "New dimensions"
+        }
+      ],
+      "body": "this.dimensions = dimension;"
+    },   
       "getPassword": {
         "returnType": "string",
         "description": "Get password",
