@@ -13,17 +13,11 @@
         </div>
         <script id="oView" name="oView" type="sapui5/xmlview">
             <mvc:View
-                controllerName="myView.Template"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                xmlns:mvc="sap.ui.core.mvc"
-                displayBlock="true"
-                xmlns:l="sap.ui.layout"
-                xmlns="sap.m"
+			    controllerName="myView.Template"
+				xmlns:l="sap.ui.layout"
                 xmlns:viz="sap.viz.ui5.controls"
-                xmlns:layout="sap.ui.layout"                
-                xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-                xmlns:viz.data="sap.viz.ui5.data"
-            >
+				xmlns:mvc="sap.ui.core.mvc"
+				xmlns="sap.m">
 				<l:VerticalLayout
 					class="sapUiContentPadding"
 					width="100%">
@@ -34,22 +28,7 @@
 							placeholder="Enter password ..." liveChange="onButtonPress"/>
 					</l:content>
 				</l:VerticalLayout>
-                <viz:VizFrame id="vizFrame" title="Column Chart" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='column'>
-                <viz:dataset>
-                    <viz.data:FlattenedDataset data="{ColumnChartData>/data}">
-                        <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Dates" value="{chartData>dates}"/>
-                        </viz.data:dimensions>
-                        <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Actuals" value="{chartData>measure}"/>
-                        </viz.data:measures>
-                    </viz.data:FlattenedDataset>
-                </viz:dataset>
-                <viz:feeds>
-                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="measure"/>
-                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="dates"/>
-                </viz:feeds>
-            </viz:VizFrame>
+
 			</mvc:View>
         </script>        
     `;
@@ -351,6 +330,7 @@
                         oPopover.connect(oVizFrame.getVizUid());
                         console.log(_jsonData);
                     },
+
                     */
                     onAfterRendering: function () {
                     },
