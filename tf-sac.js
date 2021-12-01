@@ -261,6 +261,7 @@
                 "use strict";
 
                 return Controller.extend("myView.Template", {
+                    /*
                     onInit: function () {
                         var oJsonModel = new sap.ui.model.json.JSONModel(_jsonData);
                         this.getView().setModel(oJsonModel, "ColumnChartData");
@@ -350,6 +351,7 @@
                         oPopover.connect(oVizFrame.getVizUid());
                         console.log(_jsonData);
                     },
+                    */
                     onAfterRendering: function () {
                     },
                     onButtonPress: function (oEvent) {
