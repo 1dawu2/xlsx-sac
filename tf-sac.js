@@ -264,6 +264,24 @@
                 return Controller.extend("myView.Template", {
 
                     onInit: function () {
+                    },
+
+                    onAfterRendering: function () {
+                    },
+
+                    onButtonPress: function (oEvent) {
+                        _password = oView.byId("passwordInput").getValue();
+                        that._firePropertiesChanged();
+                        console.log(_password);
+
+                        this.settings = {};
+                        this.settings.password = "";
+
+                        that.dispatchEvent(new CustomEvent("onStart", {
+                            detail: {
+                                settings: this.settings
+                            }
+                        }));
 
                         console.log(_jsonData);
 
@@ -343,25 +361,7 @@
                         var oPopover = new sap.viz.ui5.controls.Popover({});
                         oPopover.connect(oVizFrame.getVizUid());
 
-                    },
 
-                    onAfterRendering: function () {
-                    },
-
-                    onButtonPress: function (oEvent) {
-                        _password = oView.byId("passwordInput").getValue();
-                        that._firePropertiesChanged();
-                        console.log(_password);
-
-                        this.settings = {};
-                        this.settings.password = "";
-
-                        that.dispatchEvent(new CustomEvent("onStart", {
-                            detail: {
-                                settings: this.settings
-                            }
-                        }));
-                        //console.log(_jsonData);
                     }
                 });
             });
