@@ -270,7 +270,7 @@
 
         if (that._firstConnection === 0) {
             let div0 = document.createElement('div');
-            div0.innerHTML = '<?xml version="1.0"?><script id="oView_' + widgetName + '" name="oView_' + widgetName + '" type="sapui5/xmlview"><mvc:View height="100%" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" controllerName="myView.Template"><f:SimpleForm editable="true"><f:content><Label text="Upload"></Label><VBox><u:FileUploader id="idfileUploader" width="100%" useMultipart="false" sendXHR="true" sameFilenameAllowed="true" buttonText="" fileType="XLSM" placeholder="" style="Emphasized" liveChange="onValidate"></u:FileUploader></VBox></f:content></f:SimpleForm></mvc:View></script>';
+            div0.innerHTML = '<?xml version="1.0"?><script id="oView_' + widgetName + '" name="oView_' + widgetName + '" type="sapui5/xmlview"><mvc:View height="100%" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" controllerName="myView.Template"><f:SimpleForm editable="true"><f:content><Label text="Upload"></Label><VBox><u:FileUploader id="idfileUploader" width="100%" useMultipart="false" sendXHR="true" sameFilenameAllowed="true" buttonText="" fileType="XLSX" placeholder="" style="Emphasized" change="onValidate"></u:FileUploader></VBox></f:content></f:SimpleForm></mvc:View></script>';
             _shadowRoot.appendChild(div0);
 
             let div1 = document.createElement('div');
@@ -333,7 +333,7 @@
                         }
                     },
 
-                    onValidate: function (oEvent) {
+                    onValidate: function (e) {
                         var fU = this.getView().byId("idfileUploader");
                         var domRef = fU.getFocusDomRef();
                         var file = domRef.files[0];
@@ -347,8 +347,8 @@
                         });
 
                         var reader = new FileReader();
-                        reader.onload = async function (oEvent) {
-                            var strCSV = oEvent.target.result;
+                        reader.onload = async function (e) {
+                            var strCSV = e.target.result;
 
                             var workbook = XLSX.read(strCSV, {
                                 type: 'binary'
