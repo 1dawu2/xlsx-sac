@@ -441,7 +441,7 @@
                                             var result = oModel.getData();
                                             console.log(result);
 
-                                            _result = result_final;
+                                            _result = result;
 
                                             that._firePropertiesChanged();
                                             this.settings = {};
