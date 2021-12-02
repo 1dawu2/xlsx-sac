@@ -18,7 +18,7 @@
         "ignoreIntegrity": true
       },
       {
-        "kind": "builder",
+        "kind": "styling",
         "tag": "com-tf-sac-aps",
         "url": "https://1dawu2.github.io/tf-sac/tf-sac-aps.js",
         "integrity": "",
@@ -31,71 +31,122 @@
         "description": "For internal use",
         "default": ""
       },
-      "password": {
+      "title": {
         "type": "string",
-        "description": "password",
+        "description": "title",
         "default": ""
       },
-      "dimensions": {
+      "subtitle": {
         "type": "string",
-        "description": "Dimensions",
+        "description": "subtitle",
         "default": ""
       },
-      "measure": {
+      "icon": {
         "type": "string",
-        "description": "Measure",
-        "default": ""        
+        "description": "icon",
+        "default": ""
+      },
+      "unit": {
+        "type": "string",
+        "description": "unit",
+        "default": ""
+      },
+      "footer": {
+        "type": "string",
+        "description": "footer",
+        "default": ""
       }
     },
     "methods": {
-      "renderData": {
-        "description": "Render",
-        "parameters": [
-            {
-                "name": "resultSet",
-                "type": "any",
-                "description": "The json"
-            }
-        ]
-    },
-    "getDimensions": {
-      "returnType": "string",
-      "description": "Get dimensios",
-      "parameters": [],
-      "body": "return this.dimensions;"
-    },
-    "setDimensions": {
-      "description": "Set dimensions",
-      "parameters": [
-        {
-          "name": "dimension",
-          "type": "string",
-          "description": "New dimensions"
-        }
-      ],
-      "body": "this.dimensions = dimension;"
-    },   
-      "getPassword": {
+      "getTitle": {
         "returnType": "string",
-        "description": "Get password",
+        "description": "Get title",
         "parameters": [],
-        "body": "return this.password;"
+        "body": "return this.title;"
       },
-      "setPassword": {
-        "description": "Set password",
+      "setTitle": {
+        "description": "Set title",
         "parameters": [
           {
             "name": "value",
             "type": "string",
-            "description": "The new password"
+            "description": "The new title"
           }
         ],
-        "body": "this.password = value;"
+        "body": "this.title = value;"
+      },
+      "getSubTitle": {
+        "returnType": "string",
+        "description": "Get subtitle",
+        "parameters": [],
+        "body": "return this.subtitle;"
+      },
+      "setSubTitle": {
+        "description": "Set subtitle",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "description": "The new subtitle"
+          }
+        ],
+        "body": "this.subtitle = value;"
+      },
+      "getIcon": {
+        "returnType": "string",
+        "description": "Get icon",
+        "parameters": [],
+        "body": "return this.icon;"
+      },
+      "setIcon": {
+        "description": "Set icon",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "description": "The new icon"
+          }
+        ],
+        "body": "this.icon = value;"
+      },
+      "getUnit": {
+        "returnType": "string",
+        "description": "Get unit",
+        "parameters": [],
+        "body": "return this.unit;"
+      },
+      "setUnit": {
+        "description": "Set unit",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "description": "The new unit"
+          }
+        ],
+        "body": "this.unit = value;"
+      },
+      "getFooter": {
+        "returnType": "string",
+        "description": "Get footer",
+        "parameters": [],
+        "body": "return this.footer;"
+      },
+      "setFooter": {
+        "description": "Set footer",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "description": "The new footer"
+          }
+        ],
+        "body": "this.footer = value;"
       }
     },
     "events": {
-        "onStart": {
-        "description": "onStart events trigger"
+      "onStart": {
+        "description": "Specify the SAC Script that shall be triggered when the Export process is started."
       }
     }
   }
