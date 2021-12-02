@@ -362,6 +362,7 @@
                                 if (sheetName === "Sheet1") {
                                     correctsheet = true;
                                     var csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+                                    console.log(csv);
                                     if (csv.length) {
                                         result.push(csv);
                                     }
@@ -389,15 +390,15 @@
                                                     rec_count = rec_count + 1;
                                                     result_final.push({
                                                         'ID': i,
-                                                        'DATE': rec[0].trim(),
-                                                        'COUNTRY_CODE': rec[1].trim(),
-                                                        'COMPANY_CODE': rec[2].trim(),
-                                                        'TYPE': rec[3].trim(),
-                                                        'VALUE_DATE': rec[4].trim(),
-                                                        'AMOUNT': rec[5].trim().replace(/[,]/g, ""),
-                                                        'CURRENCY': rec[6].trim(),
-                                                        'COMMENTS': rec[7].trim().replace(/["'\n\r]/g, ""),
-                                                        'LOCK_FLAG': rec[8].trim(),
+                                                        'MATL_TYPE': rec[0].trim(),
+                                                        //'COUNTRY_CODE': rec[1].trim(),
+                                                        //'COMPANY_CODE': rec[2].trim(),
+                                                        //'TYPE': rec[3].trim(),
+                                                        //'VALUE_DATE': rec[4].trim(),
+                                                        //'AMOUNT': rec[5].trim().replace(/[,]/g, ""),
+                                                        //'CURRENCY': rec[6].trim(),
+                                                        //'COMMENTS': rec[7].trim().replace(/["'\n\r]/g, ""),
+                                                        //'LOCK_FLAG': rec[8].trim(),
                                                     });
                                                 }
                                             }
