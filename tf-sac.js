@@ -384,8 +384,8 @@
 
                                             var rec = result.split("[$@~!~@$]")[i].split("[#@~!~@#]");
                                             if (rec.length > 0) {
-                                                len = rec[0].trim().length + rec[1].trim().length + rec[2].trim().length + rec[3].trim().length + rec[4].trim().length + rec[
-                                                    5].trim().length + rec[6].trim().length + rec[7].trim().length + rec[8].trim().length;
+                                                len = rec[0].trim().length; //+ rec[1].trim().length + rec[2].trim().length + rec[3].trim().length + rec[4].trim().length + rec[
+                                                    //5].trim().length + rec[6].trim().length + rec[7].trim().length + rec[8].trim().length;
                                                 if (len > 0) {
                                                     rec_count = rec_count + 1;
                                                     result_final.push({
