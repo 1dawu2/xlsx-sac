@@ -69,7 +69,7 @@
 
             this._export_settings = {};
             this._export_settings.password = "";
-            this._export_settings.dimensions = "";       
+            this._export_settings.dimensions = "";
 
             this.addEventListener("click", event => {
                 console.log('click');
@@ -82,7 +82,7 @@
             const dates = []
             const values = []
             const dataSet = []
-            
+
             var tmpData = {}
             resultSet.forEach(dp => {
                 const { rawValue, description } = dp[MEASURE_DIMENSION]
@@ -103,7 +103,7 @@
                     values.push(rawValue);
                 }
 
-            })            
+            })
             _jsonData = dataSet
 
 
@@ -262,10 +262,92 @@
                 "use strict";
 
                 return Controller.extend("myView.Template", {
+
                     onInit: function () {
+
+                        console.log(_jsonData);
+
+                        var oJsonModel = new sap.ui.model.json.JSONModel(_jsonData);
+                        this.getView().setModel(oJsonModel, "ColumnChartData");
+
+                        var oVizFrame = this.getView().byId("vizFrame");
+                        oVizFrame.setModel(oJsonModel, "ColumnChartData");
+                        oVizFrame.setVizType("column");
+
+                        var vizProperties = {
+                            interaction: {
+                                zoom: {
+                                    enablement: "disabled"
+                                },
+                                selectability: {
+                                    mode: "EXCLUSIVE"
+                                }
+                            },
+                            valueAxis: {
+                                title: {
+                                    visible: false
+                                },
+                                visible: true,
+                                axisLine: {
+                                    visible: false
+                                },
+                                label: {
+                                    linesOfWrap: 2,
+                                    visible: false,
+                                    style: {
+                                        fontSize: "10px"
+                                    }
+                                }
+                            },
+                            categoryAxis: {
+                                title: {
+                                    visible: false
+                                },
+                                label: {
+                                    linesOfWrap: 2,
+                                    rotation: "fixed",
+                                    angle: 0,
+                                    style: {
+                                        fontSize: "12px"
+                                    }
+                                },
+                                axisTick: {
+                                    shortTickVisible: false
+                                }
+                            },
+                            title: {
+                                text: "Example Column Chart with IBCS style semantics",
+                                visible: true
+                            },
+                            legend: {
+                                visible: false
+                            },
+                            plotArea: {
+                                colorPalette: ["#007181"],
+                                gridline: {
+                                    visible: false
+                                },
+                                dataLabel: {
+                                    visible: true,
+                                    style: {
+                                        fontWeight: 'bold'
+                                    },
+                                    hideWhenOverlap: false
+                                },
+                                dataPointStyleMode: "update"
+                            }
+                        };
+
+                        oVizFrame.setVizProperties(vizProperties);
+                        oVizFrame.setModel(oJsonModel, "chartData");
+                        var oPopover = new sap.viz.ui5.controls.Popover({});
+                        oPopover.connect(oVizFrame.getVizUid());
+
                     },
+
                     onAfterRendering: function () {
                     },
+
                     onButtonPress: function (oEvent) {
                         _password = oView.byId("passwordInput").getValue();
                         that._firePropertiesChanged();
@@ -279,7 +361,7 @@
                                 settings: this.settings
                             }
                         }));
-                        console.log(_jsonData);
+                        //console.log(_jsonData);
                     }
                 });
             });
@@ -287,7 +369,7 @@
             //### THE APP: place the XMLView somewhere into DOM ###
             var oView = sap.ui.xmlview({
                 viewContent: jQuery(_shadowRoot.getElementById(_id + "_oView")).html(),
-            });            
+            });
             oView.placeAt(content);
 
 
