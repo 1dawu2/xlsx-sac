@@ -172,8 +172,8 @@
             async function LoadLibs() {
                 try {
                     await loadScript(xlsxjs, _shadowRoot);
-                } catch (e) {
-                    console.log(e);
+                } catch (oEvent) {
+                    console.log(oEvent);
                 } finally {
                     loadthis(that, changedProperties);
                 }
@@ -333,7 +333,7 @@
                         }
                     },
 
-                    onValidate: function (e) {
+                    onValidate: function (oEvent) {
                         var fU = this.getView().byId("idfileUploader");
                         var domRef = fU.getFocusDomRef();
                         var file = domRef.files[0];
@@ -347,8 +347,8 @@
                         });
 
                         var reader = new FileReader();
-                        reader.onload = async function (e) {
-                            var strCSV = e.target.result;
+                        reader.onload = async function (oEvent) {
+                            var strCSV = oEvent.target.result;
 
                             var workbook = XLSX.read(strCSV, {
                                 type: 'binary'
