@@ -16,6 +16,9 @@
 			    controllerName="myView.Template"
 				xmlns:l="sap.ui.layout"
 				xmlns:mvc="sap.ui.core.mvc"
+                xmlns:viz="sap.viz.ui5.controls"
+                xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+                xmlns:viz.data="sap.viz.ui5.data"
 				xmlns="sap.m">
 				<l:VerticalLayout
 					class="sapUiContentPadding"
@@ -27,9 +30,23 @@
 							placeholder="Enter password ..." liveChange="onButtonPress"/>
 					</l:content>
 				</l:VerticalLayout>
-                
+                <viz:VizFrame id="vizFrame" title="Column Chart" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='column'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{ColumnChartData>/data}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Dates" value="{chartData>dates}"/>
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Measure" value="{chartData>measure}"/>
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="measure"/>
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="dates"/>
+                </viz:feeds>
+                </viz:VizFrame>
 			</mvc:View>
-
         </script>        
     `;
 
@@ -51,7 +68,8 @@
 
 
             this._export_settings = {};
-            this._export_settings.password = "";            
+            this._export_settings.password = "";
+            this._export_settings.dimensions = "";       
 
             this.addEventListener("click", event => {
                 console.log('click');
@@ -66,7 +84,6 @@
             const dataSet = []
             
             var tmpData = {}
-            console.log(resultSet)
             resultSet.forEach(dp => {
                 const { rawValue, description } = dp[MEASURE_DIMENSION]
                 const date = dp.Date.description
@@ -206,9 +223,14 @@
             this._export_settings.password = value;
         }
 
+        get _dimensions() {
+            return this._export_settings.dimensions;
+        }
+
         static get observedAttributes() {
             return [
-                "password"
+                "password",
+                "dimensions"
             ];
         }
 
