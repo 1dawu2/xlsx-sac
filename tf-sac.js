@@ -440,9 +440,8 @@
                                         oModel.attachRequestCompleted(function () {
                                             var result = oModel.getData();
                                             console.log(result);
-                                            console.log(JSON.stringify(result_final));
-                                            JSON.stringify(result_final);
-                                            _result = result_final;
+                                            console.log(JSON.stringify(result_final));                                            
+                                            _result = JSON.stringify(result_final);
 
                                             that._firePropertiesChanged();
                                             this.settings = {};
