@@ -34,10 +34,10 @@
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{ColumnChartData>/data}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Dates" value="{chartData>dates}"/>
+                            <viz.data:DimensionDefinition name="dates" value="{chartData>dates}"/>
                         </viz.data:dimensions>
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Measure" value="{chartData>measure}"/>
+                            <viz.data:MeasureDefinition name="measure" value="{chartData>measure}"/>
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
