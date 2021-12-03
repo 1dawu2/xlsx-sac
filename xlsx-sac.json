@@ -1,10 +1,10 @@
 {
-    "id": "com.tf.sac",
+    "id": "com.xlsx.sac",
     "version": "0.0.1",
-    "name": "Tensorflow",
-    "description": "Tensorflow Timeseries Forecast",
-    "newInstancePrefix": "Tensorflow",
-    "icon": "https://1dawu2.github.io/tf-sac/icon.png",
+    "name": "Excel Upload",
+    "description": "Excel Upload",
+    "newInstancePrefix": "XLSX",
+    "icon": "https://1dawu2.github.io/xlsx-sac/icon.png",
     "vendor": "IFM",
     "eula": "",
     "license": "",
@@ -12,15 +12,15 @@
     "webcomponents": [
       {
         "kind": "main",
-        "tag": "com-tf-sac",
-        "url": "https://1dawu2.github.io/tf-sac/tf-sac.js",
+        "tag": "com-xlsx-sac",
+        "url": "https://1dawu2.github.io/xlsx-sac/xlsx-sac.js",
         "integrity": "",
         "ignoreIntegrity": true
       },
       {
         "kind": "styling",
-        "tag": "com-tf-sac-aps",
-        "url": "https://1dawu2.github.io/tf-sac/tf-sac-aps.js",
+        "tag": "com-xlsx-sac-aps",
+        "url": "https://1dawu2.github.io/xlsx-sac/xlsx-sac-aps.js",
         "integrity": "",
         "ignoreIntegrity": true
     }      

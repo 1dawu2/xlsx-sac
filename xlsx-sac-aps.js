@@ -53,7 +53,7 @@
       </form>
     `;
 
-    class ExcelAps extends HTMLElement {
+    class XLSXUploadAps extends HTMLElement {
         constructor() {
             super();
             this._shadowRoot = this.attachShadow({ mode: "open" });
@@ -152,5 +152,5 @@
             }
         }
     }
-    customElements.define("com-tf-sac-aps", ExcelAps);
+    customElements.define("com-xlsx-sac-aps", XLSXUploadAps);
 })();

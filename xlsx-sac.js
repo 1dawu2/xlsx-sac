@@ -13,7 +13,7 @@
       </style>      
     `;
 
-    class Tensorflow extends HTMLElement {
+    class XLSXUpload extends HTMLElement {
 
         constructor() {
             super();
@@ -253,7 +253,7 @@
         }
 
     }
-    customElements.define("com-tf-sac", Tensorflow);
+    customElements.define("com-xlsx-sac", XLSXUpload);
 
     // UTILS
     function loadthis(that, changedProperties) {
